@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "c5Zdy6tEySJpWZSuHUnFlzkqzAhmFPUaFyD8rAeulGse9UTO9i1Dd1iGUAUYzuFgR1Oikw8amgrhhEMVCYtcYg==",
+  "success": true,
+  "projectFilePath": "/home/estudante1/Sp3072037/Aula10DB/Aula10DB/Aula10DB.csproj",
+  "expectedPackageFiles": [
+    "/home/estudante1/.nuget/packages/microsoft.data.sqlite/7.0.5/microsoft.data.sqlite.7.0.5.nupkg.sha512",
+    "/home/estudante1/.nuget/packages/microsoft.data.sqlite.core/7.0.5/microsoft.data.sqlite.core.7.0.5.nupkg.sha512",
+    "/home/estudante1/.nuget/packages/sqlitepclraw.bundle_e_sqlite3/2.1.4/sqlitepclraw.bundle_e_sqlite3.2.1.4.nupkg.sha512",
+    "/home/estudante1/.nuget/packages/sqlitepclraw.core/2.1.4/sqlitepclraw.core.2.1.4.nupkg.sha512",
+    "/home/estudante1/.nuget/packages/sqlitepclraw.lib.e_sqlite3/2.1.4/sqlitepclraw.lib.e_sqlite3.2.1.4.nupkg.sha512",
+    "/home/estudante1/.nuget/packages/sqlitepclraw.provider.e_sqlite3/2.1.4/sqlitepclraw.provider.e_sqlite3.2.1.4.nupkg.sha512",
+    "/home/estudante1/.nuget/packages/system.memory/4.5.3/system.memory.4.5.3.nupkg.sha512"
+  ],
+  "logs": []
+}
