@@ -1,112 +1,104 @@
-Cliente Repository:
-
-
 using Aula10DB.Database;
 using Aula10DB.Models;
 using Microsoft.Data.Sqlite;
 namespace Aula10DB.Repositories;
-class PedidoRepository
+class ClienteRepository
 {
-private readonly DatabaseConfig _databaseConfig;
+    private readonly DatabaseConfig _databaseConfig;
+    public ClienteRepository(DatabaseConfig databaseConfig)
+    {
+        _databaseConfig = databaseConfig;
+    }
 
-public PedidoRepository (DatabaseConfig databaseConfig)
-{
-_databaseConfig = databaseConfig;
-}
+    public List<Cliente> GetAll()
+    {
+        var clientes = new List<Cliente>();
+        
 
-public List GetAll()
-{
-var pedidos = new List();
+        var connection = new SqliteConnection(_databaseConfig.ConnectionString);
+        connection.Open();
 
+        var command = connection.CreateCommand();
+        command.CommandText = "SELECT * FROM Cliente";
 
-var connection = new SqliteConnection(_databaseConfig.ConnectionString);
-connection.Open();
+        var reader = command.ExecuteReader();
 
-var command = connection.CreateCommand();
-command.CommandText = "SELECT * FROM Pedido";
+        while(reader.Read())
+        {
+            var clienteid = reader.GetInt32(0);
+            var endereco = reader.GetString(1);
+            var cidade = reader.GetString(2);
+            var regiao = reader.GetString(3);
+            var codigopostal = reader.GetString(4);
+            var pais = reader.GetString(5);
+            var telefone = reader.GetString(6);
+            var cliente = ReaderToCliente(reader);
+            clientes.Add(cliente);
+        }
 
-var reader = command.ExecuteReader();
+        connection.Close();
+        
+        return clientes;
+    }
 
-while(reader.Read())
-{
-var PedidoID = reader.GetInt32(0);
-var EmpregadoID = reader.GetString(1);
-var DataPedido = reader.GetString(2);
-var Peso = reader.GetInt32(3);
-var CodTransportadora = reader.GetString(4);
-var PedidoClienteId = reader.GetString(5);
+    public Cliente Save(Cliente cliente)
+    {
+        var connection = new SqliteConnection(_databaseConfig.ConnectionString);
+        connection.Open();
 
+        var command = connection.CreateCommand();
+        command.CommandText = "INSERT INTO Cliente VALUES($clienteid, $endereco, $cidade, $regiao, $codigopostal, $pais, $telefone)";
+        command.Parameters.AddWithValue("$clienteid", cliente.ClienteId);
+        command.Parameters.AddWithValue("$endereco", cliente.Enderenco);
+        command.Parameters.AddWithValue("$cidade", cliente.Cidade);
+        command.Parameters.AddWithValue("$regiao", cliente.Regiao);
+        command.Parameters.AddWithValue("$codigopostal", cliente.CodigoPostal);
+        command.Parameters.AddWithValue("$pais", cliente.Pais);
+        command.Parameters.AddWithValue("$telefone", cliente.Telefone);
 
-var pedido = ReaderToPedido(reader);
+        command.ExecuteNonQuery();
+        connection.Close();
 
+        return cliente;
+    }
+    public Cliente GetById(int clienteid)
+    {
+        var connection = new SqliteConnection(_databaseConfig.ConnectionString);
+        connection.Open();
 
-pedidos.Add(pedido);
-}
+        var command = connection.CreateCommand();
+        command.CommandText = "SELECT * FROM Cliente WHERE (clienteid = $clienteid)";
+        command.Parameters.AddWithValue("$clienteid", clienteid);
 
-connection.Close();
+        var reader = command.ExecuteReader();
+        reader.Read();
 
-return pedidos;
-}
+        var cliente = ReaderToCliente(reader);
 
-public Pedido Save(Pedido pedido)
-{
-var connection = new SqliteConnection(_databaseConfig.ConnectionString);
-connection.Open();
+        connection.Close(); 
 
-var command = connection.CreateCommand();
+        return cliente;
+    }
+  
+    public bool ExitsById(int id)
+    {
+        var connection = new SqliteConnection(_databaseConfig.ConnectionString);
+        connection.Open();
 
+        var command = connection.CreateCommand();
+        command.CommandText = "SELECT count(id) FROM Cliente WHERE (clienteid = $id)";
+        command.Parameters.AddWithValue("$id", id);
 
-command.CommandText = "INSERT INTO Pedido VALUES($id, $ram, $processor)";
-command.Parameters.AddWithValue("$PedidoID", pedido.PedidoID);
-command.Parameters.AddWithValue("$EmpregadoID", pedido.EmpregadoID);
-command.Parameters.AddWithValue("$DataPedido", pedido.DataPedido);
-command.Parameters.AddWithValue("$Peso", pedido.Peso);
-command.Parameters.AddWithValue("$CodTransportadora", pedido.CodTransportadora);
-command.Parameters.AddWithValue("$PedidoClienteId", pedido.PedidoClienteId);
-command.ExecuteNonQuery();
-connection.Close();
+        var reader = command.ExecuteReader();
+        reader.Read();
+        var result = reader.GetBoolean(0);
 
-return pedido;
-}
-public Pedido GetById(int id)
-{
-var connection = new SqliteConnection(_databaseConfig.ConnectionString);
-connection.Open();
+        return result;
+    }
+private Cliente ReaderToCliente(SqliteDataReader reader)
+    {
+        var cliente = new Cliente(reader.GetInt32(0), reader.GetString(1), reader.GetString(2),reader.GetString(3),reader.GetString(4),reader.GetString(5), reader.GetString(6));
 
-var command = connection.CreateCommand();
-command.CommandText = "SELECT * FROM Pedido WHERE (id = $id)";
-command.Parameters.AddWithValue("$id", id);
-
-var reader = command.ExecuteReader();
-reader.Read();
-
-var pedido = ReaderToPedido(reader);
-
-connection.Close();
-
-return pedido;
-}
-
-public bool ExitsById(int id)
-{
-var connection = new SqliteConnection(_databaseConfig.ConnectionString);
-connection.Open();
-
-var command = connection.CreateCommand();
-command.CommandText = "SELECT count(id) FROM Pedido WHERE (id = $id)";
-command.Parameters.AddWithValue("$id", id);
-
-var reader = command.ExecuteReader();
-reader.Read();
-var result = reader.GetBoolean(0);
-
-return result;
-}
-
-
-private Pedido ReaderToPedido(SqliteDataReader reader)
-{
-var pedido = new Pedido(reader.GetInt32(0), reader.GetInt32(1), reader.GetString(2), reader.GetString(3), reader.GetInt32(4), reader.GetInt32(5));
-return pedido;
-}
+        return cliente;
+    }
 }
