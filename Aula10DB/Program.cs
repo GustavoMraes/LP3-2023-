@@ -1,4 +1,4 @@
-    using Microsoft.Data.Sqlite;
+using Microsoft.Data.Sqlite;
 using Aula10DB.Database;
 using Aula10DB.Repositories;
 using Aula10DB.Models;
@@ -6,7 +6,7 @@ using Aula10DB.Models;
 
 var databaseConfig = new DatabaseConfig();
 var databaseSetup = new DatabaseSetup(databaseConfig);
-
+var pedidoRepository = new PedidoRepository(databaseConfig);
 var clienteRepository = new ClienteRepository(databaseConfig);
 
 var modelName = args[0];
@@ -47,4 +47,30 @@ if(modelName == "Cliente")
         clienteRepository.Save(cliente);
     }
     
+}
+
+if(modelName == "Pedido")
+{
+    if(modelAction == "List")
+    {
+        Console.WriteLine("Pedido Listar");
+        foreach (var pedido in pedidoRepository.GetAll())
+        {
+            Console.WriteLine($"{pedido.PedidoID}, {pedido.EmpregadoID}, {pedido.DataPedido}, {pedido.Peso}, {pedido.CodTransportadora}, {pedido.PedidoClienteID}");
+        }
+    }
+
+    if(modelAction == "New")
+    {
+        Console.WriteLine("Pedido Listar");
+        var pedidoId = Convert.ToInt32(args[2]);
+        var empregadoID = Convert.ToInt32(args[3]);
+        string dataPedido = args[4];
+        string peso = args[5];
+        var codTransportadora = Convert.ToInt32(args[6]);
+        var pedidoClienteID = Convert.ToInt32(args[7]);
+        var pedido = new Pedido(pedidoId, empregadoID, dataPedido, peso, codTransportadora, pedidoClienteID);
+        pedidoRepository.Save(pedido);
+    }
+
 }
