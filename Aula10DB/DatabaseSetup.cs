@@ -22,7 +22,7 @@ class DatabaseSetup
         var command = connection.CreateCommand();
         command.CommandText = @"
             CREATE TABLE IF NOT EXISTS Cliente(
-                clientid int not null primary key,
+                clienteid int not null primary key,
                 endereco varchar(100) not null,
                 cidade varchar(100) not null,
                 regiao varchar(100) not null,
@@ -44,13 +44,12 @@ class DatabaseSetup
         var command = connection.CreateCommand();
         command.CommandText = @"
             CREATE TABLE IF NOT EXISTS Pedido(
-                clientid int not null primary key,
-                endereco varchar(100) not null,
-                cidade varchar(100) not null,
-                regiao varchar(100) not null,
-                codigopostal varchar(100) not null,
-                pais varchar(100) not null,
-                telefone varchar(100) not null
+                pedidoid int not null primary key,
+                empregadoid int not null,
+                datapedido varchar(100) not null,
+                peso varchar(100) not null,
+                codtransportadora int not null,
+                pedidoclienteid int not null,
             );
         ";
 
