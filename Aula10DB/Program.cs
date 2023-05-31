@@ -15,18 +15,18 @@ var modelAction = args[1];
 
 if(modelName == "Cliente")
 {
-    if(modelAction == "List")
+    if(modelAction == "Listar")
     {
-        Console.WriteLine("Cliente Listar");
+        Console.WriteLine("Cliente Listado!");
         foreach (var cliente in clienteRepository.GetAll())
         {
             Console.WriteLine($"{cliente.ClienteID}, {cliente.Endereco}, {cliente.Cidade}, {cliente.Regiao}, {cliente.CodigoPostal}, {cliente.Pais} ,{cliente.Telefone}");
         }
     }
 
-    if(modelAction == "New")
+    if(modelAction == "Inserir")
     {
-        Console.WriteLine("Cliente Inserir");
+        Console.WriteLine("Cliente Inserirido!");
 
 
 
@@ -51,18 +51,18 @@ if(modelName == "Cliente")
 
 if(modelName == "Pedido")
 {
-    if(modelAction == "List")
+    if(modelAction == "Listar")
     {
-        Console.WriteLine("Pedido Listar");
+        Console.WriteLine("Pedido Listado!");
         foreach (var pedido in pedidoRepository.GetAll())
         {
             Console.WriteLine($"{pedido.PedidoID}, {pedido.EmpregadoID}, {pedido.DataPedido}, {pedido.Peso}, {pedido.CodTransportadora}, {pedido.PedidoClienteID}");
         }
     }
 
-    if(modelAction == "New")
+    if(modelAction == "Inserir")
     {
-        Console.WriteLine("Pedido Listar");
+        Console.WriteLine("Pedido Inserido!");
         var pedidoId = Convert.ToInt32(args[2]);
         var empregadoID = Convert.ToInt32(args[3]);
         string dataPedido = args[4];
