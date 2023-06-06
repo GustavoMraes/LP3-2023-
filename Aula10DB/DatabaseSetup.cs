@@ -37,7 +37,6 @@ class DatabaseSetup
     }
         private void CreatePedidoTable()
     {
-        
         var connection = new SqliteConnection(_databaseConfig.ConnectionString);
         connection.Open();
 

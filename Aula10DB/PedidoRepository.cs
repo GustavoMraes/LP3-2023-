@@ -12,7 +12,7 @@ public PedidoRepository (DatabaseConfig databaseConfig)
 _databaseConfig = databaseConfig;
 }
 
-public List<Pedido> GetAll()
+public List<Pedido> GetAll() 
 {
     
 var pedidos = new List<Pedido>();
@@ -55,13 +55,13 @@ connection.Open();
 var command = connection.CreateCommand();
 
 
-command.CommandText = "INSERT INTO Pedido VALUES($id, $ram, $processor)";
+command.CommandText = "INSERT INTO Pedido VALUES($PedidoID, $EmpregadoID, $DataPedido, $Peso, $CodTransportadora, $PedidoClienteID)";
 command.Parameters.AddWithValue("$PedidoID", pedido.PedidoID);
 command.Parameters.AddWithValue("$EmpregadoID", pedido.EmpregadoID);
 command.Parameters.AddWithValue("$DataPedido", pedido.DataPedido);
 command.Parameters.AddWithValue("$Peso", pedido.Peso);
 command.Parameters.AddWithValue("$CodTransportadora", pedido.CodTransportadora);
-command.Parameters.AddWithValue("$PedidoClienteId", pedido.PedidoClienteID);
+command.Parameters.AddWithValue("$PedidoClienteID", pedido.PedidoClienteID);
 command.ExecuteNonQuery();
 connection.Close();
 
