@@ -80,21 +80,22 @@ class ClienteRepository
         return cliente;
     }
   
-    public bool ExitsById(int id)
-    {
-        var connection = new SqliteConnection(_databaseConfig.ConnectionString);
-        connection.Open();
+   public bool ExitsById(int id)
+{
+    var connection = new SqliteConnection(_databaseConfig.ConnectionString);
+    connection.Open();
 
-        var command = connection.CreateCommand();
-        command.CommandText = "SELECT count(id) FROM Cliente WHERE (clienteid = $id)";
-        command.Parameters.AddWithValue("$id", id);
+    var command = connection.CreateCommand();
+    command.CommandText = "SELECT count(ClienteID) FROM Cliente WHERE (ClienteID = $id)";
+    command.Parameters.AddWithValue("$id", id);
 
-        var reader = command.ExecuteReader();
-        reader.Read();
-        var result = reader.GetBoolean(0);
+    var reader = command.ExecuteReader();
+    reader.Read();
+    var result = reader.GetBoolean(0);
 
-        return result;
-    }
+    return result;
+}
+
 private Cliente ReaderToCliente(SqliteDataReader reader)
     {
         var cliente = new Cliente(reader.GetInt32(0), reader.GetString(1), reader.GetString(2),reader.GetString(3),reader.GetString(4),reader.GetString(5), reader.GetString(6));

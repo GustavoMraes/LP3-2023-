@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7xzv0hu4l/sxFeZPTC5hptWJTuWMLeQfNzZD8Fxn4RbTzoHyZm6/Zm2RrTE4nd+mwqvnnGDIURPniomD/U6+Dw==",
+  "dgSpecHash": "MED6K69WzHAwNC5kxNtljPuBIXSKy72dlQnWqvef/mwy6FJ42Le52NR/pPpG5pXYAohoYfDXqK4i8wkxnIm6Zg==",
   "success": true,
-  "projectFilePath": "/home/estudante1/Documentos/LP3-2023-/Aula10DB/Aula10DB.csproj",
+  "projectFilePath": "/home/estudante1/Documentos/GitHub/LP3-2023-/Aula10DB/Aula10DB.csproj",
   "expectedPackageFiles": [
     "/home/estudante1/.nuget/packages/microsoft.data.sqlite/7.0.5/microsoft.data.sqlite.7.0.5.nupkg.sha512",
     "/home/estudante1/.nuget/packages/microsoft.data.sqlite.core/7.0.5/microsoft.data.sqlite.core.7.0.5.nupkg.sha512",

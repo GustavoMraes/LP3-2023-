@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/estudante1/Documentos/LP3-2023-/Aula10DB/Aula10DB.csproj": {}
+    "/home/estudante1/Documentos/GitHub/LP3-2023-/Aula10DB/Aula10DB.csproj": {}
   },
   "projects": {
-    "/home/estudante1/Documentos/LP3-2023-/Aula10DB/Aula10DB.csproj": {
+    "/home/estudante1/Documentos/GitHub/LP3-2023-/Aula10DB/Aula10DB.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/estudante1/Documentos/LP3-2023-/Aula10DB/Aula10DB.csproj",
+        "projectUniqueName": "/home/estudante1/Documentos/GitHub/LP3-2023-/Aula10DB/Aula10DB.csproj",
         "projectName": "Aula10DB",
-        "projectPath": "/home/estudante1/Documentos/LP3-2023-/Aula10DB/Aula10DB.csproj",
+        "projectPath": "/home/estudante1/Documentos/GitHub/LP3-2023-/Aula10DB/Aula10DB.csproj",
         "packagesPath": "/home/estudante1/.nuget/packages/",
-        "outputPath": "/home/estudante1/Documentos/LP3-2023-/Aula10DB/obj/",
+        "outputPath": "/home/estudante1/Documentos/GitHub/LP3-2023-/Aula10DB/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/estudante1/.nuget/NuGet/NuGet.Config"
