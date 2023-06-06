@@ -20,15 +20,13 @@ if(modelName == "Cliente")
         Console.WriteLine("Cliente Listado!");
         foreach (var cliente in clienteRepository.GetAll())
         {
-            Console.WriteLine($"{cliente.ClienteID}, {cliente.Endereco}, {cliente.Cidade}, {cliente.Regiao}, {cliente.CodigoPostal}, {cliente.Pais} ,{cliente.Telefone}");
+            Console.WriteLine($"{cliente.ClienteID}, {cliente.Endereco}, {cliente.Cidade}, {cliente.Regiao}, {cliente.Codigopostal}, {cliente.Pais} ,{cliente.Telefone}");
         }
     }
 
     if(modelAction == "Inserir")
     {
         Console.WriteLine("Cliente Inserirido!");
-
-
 
         var clienteID = Convert.ToInt32(args[2]);   
         string endereco  = args[3];
@@ -38,11 +36,6 @@ if(modelName == "Cliente")
         string pais  = args[7];
         string telefone  = args[8];
        
-
-
-
-
-
         var cliente = new Cliente(clienteID, endereco, cidade, regiao, codigoPostal, pais, telefone);
         clienteRepository.Save(cliente);
     }
