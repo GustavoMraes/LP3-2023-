@@ -18,9 +18,10 @@ if(modelName == "Cliente")
     if(modelAction == "Listar")
     {
         Console.WriteLine("Cliente Listado!");
-        foreach (var cliente in clienteRepository.GetAll())
+        Console.WriteLine("Id Cliente   Endereço do Cliente           Cidade                     Região                     Código Postal        País                          Telefone");
+        foreach (var cliente in clienteRepository.GetAll()) 
         {
-            Console.WriteLine($"{cliente.ClienteID}, {cliente.Endereco}, {cliente.Cidade}, {cliente.Regiao}, {cliente.Codigopostal}, {cliente.Pais} ,{cliente.Telefone}");
+             Console.WriteLine($"{cliente.ClienteID, -12} {cliente.Endereco, -29} {cliente.Cidade, -26} {cliente.Regiao, -26} {cliente.Codigopostal, -20} {cliente.Pais, -29} {cliente.Telefone}");
         }
     }
 
@@ -68,10 +69,12 @@ if(modelName == "Pedido")
 {
     if(modelAction == "Listar")
     {
+
         Console.WriteLine("Pedido Listado!");
+         Console.WriteLine("Nro Pedido   Id Empregado   Data do Pedido        Peso        Codigo da Transportadora   Id do Cliente");
         foreach (var pedido in pedidoRepository.GetAll())
         {
-            Console.WriteLine($"{pedido.PedidoID}, {pedido.EmpregadoID}, {pedido.DataPedido}, {pedido.Peso}, {pedido.CodTransportadora}, {pedido.PedidoClienteID}");
+             Console.WriteLine($"{pedido.PedidoID, -12} {pedido.EmpregadoID, -14} {pedido.DataPedido, -21} {pedido.Peso, -9} {pedido.CodTransportadora, -28} {pedido.PedidoClienteID}");
         }
     }
 
