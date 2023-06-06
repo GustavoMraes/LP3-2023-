@@ -49,7 +49,7 @@ class DatabaseSetup
                 datapedido varchar(100) not null,
                 peso varchar(100) not null,
                 codtransportadora int not null,
-                pedidoclienteid int not null,
+                pedidoclienteid int not null
             );
         ";
 

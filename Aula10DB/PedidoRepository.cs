@@ -61,7 +61,7 @@ command.Parameters.AddWithValue("$EmpregadoID", pedido.EmpregadoID);
 command.Parameters.AddWithValue("$DataPedido", pedido.DataPedido);
 command.Parameters.AddWithValue("$Peso", pedido.Peso);
 command.Parameters.AddWithValue("$CodTransportadora", pedido.CodTransportadora);
-command.Parameters.AddWithValue("$PedidoClienteId", pedido.PedidoClienteId);
+command.Parameters.AddWithValue("$PedidoClienteId", pedido.PedidoClienteID);
 command.ExecuteNonQuery();
 connection.Close();
 

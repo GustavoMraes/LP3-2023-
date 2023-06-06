@@ -48,11 +48,11 @@ class ClienteRepository
 
         var command = connection.CreateCommand();
         command.CommandText = "INSERT INTO Cliente VALUES($clienteid, $endereco, $cidade, $regiao, $codigopostal, $pais, $telefone)";
-        command.Parameters.AddWithValue("$clienteid", cliente.ClienteId);
-        command.Parameters.AddWithValue("$endereco", cliente.Enderenco);
+        command.Parameters.AddWithValue("$clienteid", cliente.ClienteID);
+        command.Parameters.AddWithValue("$endereco", cliente.Endereco);
         command.Parameters.AddWithValue("$cidade", cliente.Cidade);
         command.Parameters.AddWithValue("$regiao", cliente.Regiao);
-        command.Parameters.AddWithValue("$codigopostal", cliente.CodigoPostal);
+        command.Parameters.AddWithValue("$codigopostal", cliente.Codigopostal);
         command.Parameters.AddWithValue("$pais", cliente.Pais);
         command.Parameters.AddWithValue("$telefone", cliente.Telefone);
 

@@ -26,7 +26,7 @@ if(modelName == "Cliente")
 
     if(modelAction == "Inserir")
     {
-        Console.WriteLine("Cliente Inserirido!");
+        Console.WriteLine("Cliente Inserido!");
 
         var clienteID = Convert.ToInt32(args[2]);   
         string endereco  = args[3];
