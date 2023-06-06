@@ -7,7 +7,7 @@ class Pedido
     public string DataPedido { get; set; }
     public string Peso { get; set; }
     public int CodTransportadora { get; set; }
-    public int PedidoClienteId { get; set; }   
+    public int PedidoClienteID { get; set; }   
 
 
     public Pedido(int pedidoID, int empregadoID, string dataPedido, string peso, int codTransportadora, int pedidoCliente)
@@ -17,6 +17,6 @@ class Pedido
         DataPedido = dataPedido;
         Peso = peso;
         CodTransportadora = codTransportadora;
-        PedidoClienteId = pedidoCliente;          
+        PedidoClienteID = pedidoCliente;          
     }  
 }
